@@ -1,13 +1,15 @@
 # EZ Chef
 
-EZ Chef provides recipes based on ingredients, generates shopping lists, and converts serving sizes based on desired portion.
+EZ Chef is your new chef mate who can help you develop your cooking skills by providing recipe ideas and cooking instructions, set you up with a grocery list, and even convert serving sizes based on how much food you want to make. Once you are confident enough, you can even create your own recipes in EZ Chef so that you can come back to that same delicious meal whenever you want to. EZ Chef is perfect for anybody wishing to just improve their cooking skills, avid meal prep fanatics, and even aspiring chefs. Start cooking today with EZ Chef, cooking made easy!
 
-Visitors of EZ Chef can:
+## Features
+
+### Visitors of EZ Chef can:
 - search recipes from the Spoonacular API based on keywords or ingredients
 - convert serving sizes based on desired portions 
 - register for an EZ Chef account
 
-Logged in users can access personalized content, including:
+### Logged in users can access personalized content, including:
 - creating and editing new recipes that are only available to them
 - deleting recipes that they no longer wish to keep
 - adding recipes created by the user or searched from the API to their favourites
