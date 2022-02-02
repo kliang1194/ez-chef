@@ -2,6 +2,19 @@
 
 EZ Chef provides recipes based on ingredients, generates shopping lists, and converts serving sizes based on desired portion.
 
+Visitors of EZ Chef can:
+- search recipes from the Spoonacular API based on keywords or ingredients
+- convert serving sizes based on desired portions 
+- register for an EZ Chef account
+
+Logged in users can access personalized content, including:
+- creating and editing new recipes that are only available to them
+- deleting recipes that they no longer wish to keep
+- adding recipes created by the user or searched from the API to their favourites
+- adding recipes created by the user or search from the API to their grocery list 
+- texting ingredients from their grocery list to a mobile number 
+- removing recipes from their favourites and/or grocery list
+
 ## Final Product
 
 ### Landing Page
