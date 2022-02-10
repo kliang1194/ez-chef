@@ -52,8 +52,8 @@ app.use(passport.session());
 dotenv.config();
 
 // Database config to Connect to local
-// const db = require("./config/keys").mongoCloud;
-const db = require("./config/keys").mongoLocal;
+const db = require("./config/keys").mongoCloud;
+// const db = require("./config/keys").mongoLocal;
 
 //Use Routes
 app.use("/favourites", favouriteRoutes);
