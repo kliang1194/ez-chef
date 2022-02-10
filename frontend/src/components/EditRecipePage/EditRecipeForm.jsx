@@ -19,7 +19,7 @@ const EditRecipeForm = ({ user, recipeID }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/recipes/edit/${user}/${recipeID}`)
+      .get(`/recipes/edit/${user}/${recipeID}`)
       .then((res) => {
         setRecipe(res.data[0]);
         console.log("res.data", res.data[0]);

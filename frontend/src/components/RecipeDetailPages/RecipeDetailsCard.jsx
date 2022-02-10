@@ -61,7 +61,7 @@ const RecipeDetails = ({ user }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/search/details/${id}`)
+      .get(`/search/details/${id}`)
       .then(function (response) {
         setDetails(response.data);
         console.log("response", response.data);
@@ -73,7 +73,7 @@ const RecipeDetails = ({ user }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/favourites/check/${user}/${id}`)
+      .get(`/favourites/check/${user}/${id}`)
       .then((response) => {
         if (response.data) {
           console.log("response.data here", response.data);
@@ -89,7 +89,7 @@ const RecipeDetails = ({ user }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/groceries/check/${user}/${id}`)
+      .get(`/groceries/check/${user}/${id}`)
       .then((response) => {
         if (response.data) {
           console.log("response.data here", response.data);
@@ -117,7 +117,7 @@ const RecipeDetails = ({ user }) => {
 
   const onClickFavourite = () => {
     if (user) {
-      const URL = `http://localhost:8000/favourites/api/${user}/${details.id}`;
+      const URL = `/favourites/api/${user}/${details.id}`;
       axios
         .post(URL, details)
         .then(() => setIsFav(true))
@@ -134,10 +134,7 @@ const RecipeDetails = ({ user }) => {
   const onClickGrocery = () => {
     if (user) {
       axios
-        .post(
-          `http://localhost:8000/groceries/api/${user}/${details.id}`,
-          details
-        )
+        .post(`/groceries/api/${user}/${details.id}`, details)
         .then(() => setIsGroceries(true))
         .catch((err) => {
           deleteGroceryList();
@@ -148,7 +145,7 @@ const RecipeDetails = ({ user }) => {
   };
 
   const deleteFavourite = () => {
-    const url = `http://localhost:8000/favourites/${user}/${details.id}`;
+    const url = `/favourites/${user}/${details.id}`;
     axios
       .delete(url)
       .then(() => {
@@ -161,7 +158,7 @@ const RecipeDetails = ({ user }) => {
   };
 
   const deleteGroceryList = () => {
-    const url = `http://localhost:8000/groceries/${user}/${details.id}`;
+    const url = `/groceries/${user}/${details.id}`;
     axios
       .delete(url)
       .then(() => setIsGroceries(false))

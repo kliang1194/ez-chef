@@ -49,7 +49,7 @@ const IngredientList = ({ myGroceryList }) => {
     };
     console.log("send", send);
     axios
-      .put("http://localhost:8000/twilio", send)
+      .put("/twilio", send)
       .then((res) => {
         console.log("text sent", res);
         setPhone("");

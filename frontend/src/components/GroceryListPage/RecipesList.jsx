@@ -13,7 +13,7 @@ import {
 
 const RecipesList = ({ myGroceryList, user }) => {
   const deleteGroceryList = (id) => {
-    const url = `http://localhost:8000/groceries/${user}/${id}`;
+    const url = `/groceries/${user}/${id}`;
     axios
       .delete(url)
       .then(function (response) {
@@ -52,9 +52,9 @@ const RecipesList = ({ myGroceryList, user }) => {
             ? myGroceryList.map((groceryList) => {
                 let url = "";
                 if (groceryList.grocery_list_recipeID.length <= 10) {
-                  url += `http://localhost:3000/search/${groceryList.grocery_list_recipeID}`;
+                  url += `/search/${groceryList.grocery_list_recipeID}`;
                 } else {
-                  url += `http://localhost:3000/myRecipes/${groceryList.grocery_list_recipeID}`;
+                  url += `/myRecipes/${groceryList.grocery_list_recipeID}`;
                 }
                 return (
                   <Grid item key={groceryList.grocery_list_recipeID}>

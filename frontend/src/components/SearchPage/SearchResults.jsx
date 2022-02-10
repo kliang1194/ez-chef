@@ -58,7 +58,7 @@ const SearchResults = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/search/results/${results}`)
+      .get(`/search/results/${results}`)
       .then(function (response) {
         console.log("response.data hello", response.data);
         // handle success
@@ -201,7 +201,7 @@ const SearchResults = () => {
                       a.title.toLowerCase().localeCompare(b.title.toLowerCase())
                     )
                     .map((recip, index) => {
-                      const url = `http://localhost:3000/search/${recip.id}`;
+                      const url = `/search/${recip.id}`;
                       return (
                         <Grid key={index} item xs={12} sm={12} md={4} lg={4}>
                           <Card

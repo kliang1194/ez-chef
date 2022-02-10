@@ -27,7 +27,7 @@ const GroceryList = ({ user }) => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:8000/groceries/${user}`)
+      .get(`/groceries/${user}`)
       .then(function (response) {
         setMyGroceryList(response.data);
       })

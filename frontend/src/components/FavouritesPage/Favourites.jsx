@@ -33,7 +33,7 @@ const Favourites = ({ user }) => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:8000/favourites/${user}`)
+      .get(`/favourites/${user}`)
       .then(function (response) {
         setMyFavs(response.data);
       })
@@ -47,7 +47,7 @@ const Favourites = ({ user }) => {
   }, []);
 
   const deleteFavourite = (id) => {
-    const url = `http://localhost:8000/favourites/${user}/${id}`;
+    const url = `/favourites/${user}/${id}`;
     axios
       .delete(url)
       .then(function (response) {
@@ -71,7 +71,8 @@ const Favourites = ({ user }) => {
               flexGrow: 1,
               height: "95vh",
               overflow: "auto",
-            }}>
+            }}
+          >
             <Typography textAlign="center" variant="h4">
               My Favourite Recipes
             </Typography>
@@ -82,14 +83,15 @@ const Favourites = ({ user }) => {
               columns={{ xs: 4, sm: 8, md: 12 }}
               direction="row"
               justifyContent="center"
-              alignItems="center">
+              alignItems="center"
+            >
               {myFavs.length ? (
                 myFavs.map((recip) => {
                   let url = "";
                   if (recip.favourite_recipeID.length < 10) {
-                    url += `http://localhost:3000/search/${recip.favourite_recipeID}`;
+                    url += `/search/${recip.favourite_recipeID}`;
                   } else {
-                    url += `http://localhost:3000/myRecipes/${recip.favourite_recipeID}`;
+                    url += `/myRecipes/${recip.favourite_recipeID}`;
                   }
                   return (
                     <Grid item key={recip}>
@@ -104,24 +106,28 @@ const Favourites = ({ user }) => {
                           ":hover": {
                             boxShadow: 20,
                           },
-                        }}>
+                        }}
+                      >
                         <CardContent
                           sx={{
                             flexGrow: 1,
                             paddingLeft: 0,
                             paddingRight: 0,
                             paddingBottom: 0,
-                          }}>
+                          }}
+                        >
                           <Link
                             href={url}
                             style={{
                               color: "black",
                               textDecoration: "none",
-                            }}>
+                            }}
+                          >
                             <Typography
                               fontSize={18}
                               textAlign="center"
-                              marginBottom={1}>
+                              marginBottom={1}
+                            >
                               {recip.favourite_title}
                             </Typography>
                             <CardMedia
@@ -141,7 +147,8 @@ const Favourites = ({ user }) => {
                             onClick={() => {
                               deleteFavourite(recip.favourite_recipeID);
                             }}
-                            size="medium">
+                            size="medium"
+                          >
                             Remove
                           </Button>
                         </CardActions>
@@ -158,20 +165,23 @@ const Favourites = ({ user }) => {
                   lg={4}
                   style={{
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   <Box
                     sx={{
                       p: 10,
                       flexGrow: 1,
                       height: "100vh",
                       overflow: "auto",
-                    }}>
+                    }}
+                  >
                     <Button
                       variant="outlined"
                       size="large"
                       onClick={() => {
                         navigate("/search");
-                      }}>
+                      }}
+                    >
                       Search For Recipes
                     </Button>
                   </Box>

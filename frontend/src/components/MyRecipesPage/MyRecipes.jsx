@@ -34,7 +34,7 @@ const MyRecipes = ({ user }) => {
 
   const getData = () => {
     axios
-      .get(`http://localhost:8000/recipes/${user}`)
+      .get(`/recipes/${user}`)
       .then(function (response) {
         setMyRecipes(response.data);
       })
@@ -48,7 +48,7 @@ const MyRecipes = ({ user }) => {
   }, []);
 
   const deleteRecipe = (id) => {
-    const URL = `http://localhost:8000/recipes/${user}/${id}`;
+    const URL = `/recipes/${user}/${id}`;
     axios
       .delete(URL)
       .then(function (response) {
@@ -76,7 +76,8 @@ const MyRecipes = ({ user }) => {
               flexGrow: 1,
               height: "95vh",
               overflow: "auto",
-            }}>
+            }}
+          >
             <Typography textAlign="center" variant="h4">
               My Recipes
             </Typography>
@@ -87,10 +88,11 @@ const MyRecipes = ({ user }) => {
               columns={{ xs: 4, sm: 8, md: 12 }}
               direction="row"
               justifyContent="center"
-              alignItems="center">
+              alignItems="center"
+            >
               {myRecipes.length ? (
                 myRecipes.map((recip) => {
-                  const url = `http://localhost:3000/myRecipes/${recip._id}`;
+                  const url = `/myRecipes/${recip._id}`;
                   return (
                     <Grid item key={recip}>
                       <Card
@@ -104,25 +106,29 @@ const MyRecipes = ({ user }) => {
                           ":hover": {
                             boxShadow: 20,
                           },
-                        }}>
+                        }}
+                      >
                         <CardContent
                           sx={{
                             flexGrow: 1,
                             paddingLeft: 0,
                             paddingRight: 0,
                             paddingBottom: 0,
-                          }}>
+                          }}
+                        >
                           <Link
                             style={{
                               color: "black",
                               textDecoration: "none",
                             }}
                             fontSize={18}
-                            href={url}>
+                            href={url}
+                          >
                             <Typography
                               fontSize={18}
                               textAlign="center"
-                              marginBottom={1}>
+                              marginBottom={1}
+                            >
                               {recip.title}
                             </Typography>
                             <CardMedia
@@ -139,7 +145,8 @@ const MyRecipes = ({ user }) => {
                             onClick={() => {
                               editRecipe(recip._id);
                             }}
-                            size="medium">
+                            size="medium"
+                          >
                             Edit
                           </Button>
                           <Button
@@ -147,7 +154,8 @@ const MyRecipes = ({ user }) => {
                             onClick={() => {
                               deleteRecipe(recip._id);
                             }}
-                            size="medium">
+                            size="medium"
+                          >
                             Delete
                           </Button>
                         </CardActions>
@@ -164,20 +172,23 @@ const MyRecipes = ({ user }) => {
                   lg={4}
                   style={{
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   <Box
                     sx={{
                       p: 10,
                       flexGrow: 1,
                       height: "100vh",
                       overflow: "auto",
-                    }}>
+                    }}
+                  >
                     <Button
                       variant="outlined"
                       size="large"
                       onClick={() => {
                         navigate("/new");
-                      }}>
+                      }}
+                    >
                       Create New Recipes
                     </Button>
                   </Box>
